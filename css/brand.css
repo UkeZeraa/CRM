@@ -1,0 +1,45 @@
+/* ============================================================
+   ASCEND DIGITAL — Tokens de marca (PROVISÓRIOS)
+   Valores temporários: substituir pela identidade de
+   https://ascend-digital-kohl.vercel.app/ — todo o CRM lê daqui.
+   ============================================================ */
+:root {
+  /* Cores de marca */
+  --brand-1: #7C3AED;            /* violeta (base do gradiente) */
+  --brand-2: #22D3EE;            /* ciano (topo do gradiente)   */
+  --brand-gradient: linear-gradient(135deg, var(--brand-1) 0%, var(--brand-2) 100%);
+  --brand-glow: 0 8px 30px rgba(124, 58, 237, .35);
+
+  /* Superfícies (tema escuro) */
+  --bg: #070B17;
+  --surface: #0E1426;
+  --surface-2: #141B31;
+  --surface-3: #1B2440;
+  --border: #232D4D;
+  --text: #E7EBF7;
+  --text-muted: #8A94B6;
+
+  /* Estados */
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --danger:  #EF4444;
+  --info:    #38BDF8;
+
+  /* Tipografia e formas */
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Space Grotesk", var(--font);
+  --radius: 14px;
+  --radius-sm: 9px;
+}
+
+/* Tema claro (alternável em Configurações) */
+:root[data-theme="light"] {
+  --bg: #F4F6FC;
+  --surface: #FFFFFF;
+  --surface-2: #F1F3FA;
+  --surface-3: #E7EAF5;
+  --border: #DDE2F0;
+  --text: #0E1426;
+  --text-muted: #5B6488;
+  --brand-glow: 0 8px 24px rgba(124, 58, 237, .18);
+}
