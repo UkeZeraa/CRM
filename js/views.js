@@ -1,6 +1,6 @@
 /* Telas do CRM. Cada view recebe o elemento raiz e (opcionalmente) parâmetros da rota. */
 window.Views = (() => {
-  const { esc, initials, money, ago, dateTime, STATUS, PRIORITY, CHANNELS, statusBadge, priorityBadge, options, openModal, closeModal, toast, formData } = UI;
+  const { esc, initials, money, ago, dateTime, STATUS, PRIORITY, CHANNELS, statusBadge, priorityBadge, options, openModal, closeModal, toast, formData, ask } = UI;
   const S = Store;
 
   /* ============ VISÃO GERAL ============ */
@@ -286,7 +286,7 @@ window.Views = (() => {
     root.querySelector('#edit').onclick = () => contactForm(c);
     root.querySelector('#nt').onclick = () => newTicket(c.id);
     root.querySelector('#del').onclick = () => {
-      if (confirm(`Excluir ${c.name}? Atendimentos e oportunidades deste contato também serão removidos.`)) { S.deleteContact(id); location.hash = '#/contatos'; toast('Contato excluído'); }
+      ask('Excluir contato', `Excluir ${c.name}? Os atendimentos e oportunidades deste contato também serão removidos.`, 'Excluir', () => { S.deleteContact(id); location.hash = '#/contatos'; toast('Contato excluído'); });
     };
   }
 
@@ -384,19 +384,19 @@ window.Views = (() => {
         <div class="card"><h3>Preferências</h3>
           <label class="field">Tema<select class="input" id="theme"><option value="dark" ${settings.theme === 'dark' ? 'selected' : ''}>Escuro</option><option value="light" ${settings.theme === 'light' ? 'selected' : ''}>Claro</option></select></label>
           <h3 style="margin-top:24px">Dados</h3>
-          <p class="muted">Os dados ficam salvos neste navegador. Exporte para backup ou restaure o exemplo.</p>
-          <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" id="export">Exportar JSON</button><button class="btn btn-danger" id="reset">Restaurar dados de exemplo</button></div>
+          <p class="muted">Os dados ficam salvos neste navegador. Copie para backup ou restaure o exemplo.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn" id="export">Copiar dados (JSON)</button><button class="btn btn-danger" id="reset">Restaurar dados de exemplo</button></div>
         </div>
       </div>`;
     root.querySelectorAll('[data-me]').forEach((b) => b.onclick = () => { settings.meId = b.dataset.me; S.save(); toast('Usuário alterado'); });
     root.querySelector('#fa').onsubmit = (e) => { e.preventDefault(); const d = formData(e.target); agents.push({ id: S.uid('a'), ...d }); S.save(); toast('Atendente adicionado'); };
     root.querySelector('#theme').onchange = (e) => { settings.theme = e.target.value; S.save(); };
-    root.querySelector('#export').onclick = () => {
-      const a = document.createElement('a');
-      a.href = URL.createObjectURL(new Blob([JSON.stringify(S.get(), null, 2)], { type: 'application/json' }));
-      a.download = `ascend-crm-${new Date().toISOString().slice(0, 10)}.json`; a.click();
+    root.querySelector('#export').onclick = async () => {
+      const json = JSON.stringify(S.get(), null, 2);
+      try { await navigator.clipboard.writeText(json); toast('Dados copiados'); }
+      catch { openModal('Dados (JSON)', `<textarea class="input" style="min-height:300px" id="json-out" readonly>${esc(json)}</textarea>`, (b) => b.querySelector('#json-out').select()); }
     };
-    root.querySelector('#reset').onclick = () => { if (confirm('Apagar tudo e restaurar os dados de exemplo?')) { S.reset(); toast('Dados restaurados'); } };
+    root.querySelector('#reset').onclick = () => ask('Restaurar dados', 'Apagar tudo e restaurar os dados de exemplo?', 'Restaurar', () => { S.reset(); toast('Dados restaurados'); });
   }
 
   return { dashboard, atendimentos, contatos, funil, configuracoes, newTicket, inboxState };

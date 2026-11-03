@@ -14,7 +14,7 @@ h1, h2, h3, h4 { font-family: var(--font-display); margin: 0; letter-spacing: -.
 .grad-text { background: var(--brand-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
 /* ---------- Layout ---------- */
-.app { display: grid; grid-template-columns: 248px 1fr; height: 100vh; }
+.app { display: grid; grid-template-columns: 248px 1fr; height: 100%; }
 .sidebar {
   background: var(--surface);
   border-right: 1px solid var(--border);
@@ -128,7 +128,7 @@ label.field .input { color: var(--text); font-size: 14px; }
 .ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ---------- Atendimentos (inbox) ---------- */
-.inbox { display: grid; grid-template-columns: 360px minmax(0, 1fr); height: calc(100vh - 120px); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+.inbox { display: grid; grid-template-columns: 360px minmax(0, 1fr); height: calc(100dvh - 120px); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
 .inbox-list { border-right: 1px solid var(--border); display: flex; flex-direction: column; min-height: 0; }
 .inbox-filters { padding: 12px; display: flex; gap: 6px; flex-wrap: wrap; border-bottom: 1px solid var(--border); }
 .chip { padding: 5px 11px; border-radius: 99px; border: 1px solid var(--border); background: transparent; cursor: pointer; font-size: 12px; font-weight: 500; color: var(--text-muted); white-space: nowrap; }

@@ -38,7 +38,12 @@ window.UI = (() => {
     el.textContent = msg; el.hidden = false;
     clearTimeout(toastTimer); toastTimer = setTimeout(() => (el.hidden = true), 2600);
   }
+  function ask(title, text, okLabel, onOk) {
+    openModal(title, `<p class="muted" style="margin:0 0 6px">${esc(text)}</p>
+      <div class="form-actions"><button type="button" class="btn" data-close>Cancelar</button><button type="button" class="btn btn-primary" id="ask-ok">${esc(okLabel)}</button></div>`,
+      (body) => { body.querySelector('#ask-ok').onclick = () => { closeModal(); onOk(); }; });
+  }
   const formData = (form) => Object.fromEntries(new FormData(form).entries());
 
-  return { esc, initials, money, ago, dateTime, STATUS, PRIORITY, CHANNELS, statusBadge, priorityBadge, options, openModal, closeModal, toast, formData };
+  return { esc, initials, money, ago, dateTime, STATUS, PRIORITY, CHANNELS, statusBadge, priorityBadge, options, openModal, closeModal, toast, formData, ask };
 })();

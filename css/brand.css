@@ -30,6 +30,7 @@
   --font-display: "Space Grotesk", var(--font);
   --radius: 14px;
   --radius-sm: 9px;
+  color-scheme: dark;
 }
 
 /* Tema claro (alternável em Configurações) */
@@ -42,4 +43,5 @@
   --text: #0E1426;
   --text-muted: #5B6488;
   --brand-glow: 0 8px 24px rgba(124, 58, 237, .18);
+  color-scheme: light;
 }
