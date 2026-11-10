@@ -14,6 +14,8 @@
 | **Sábado** | 🎵 **Cantoria** — passos 5 e 6 (shadowing + estrofe própria) + `QUIZ` da semana | Gravação de 1–2 min |
 | **Domingo** | Descanso ativo: série/música/podcast em inglês por prazer | — |
 
+> **Quizzes surpresa no WhatsApp:** além da sessão principal, o [bot](bot-whatsapp/README.md) envia 2–3 quizzes de 3 minutos por dia, em horários sorteados entre 8h e 17h. Responda sempre que chegar — é a repetição espaçada trabalhando por você.
+>
 > **Pouco tempo?** Versão mínima de 15 min/dia: 5 min de flashcards + 10 min de conversa por voz com a IA. Nunca pule dois dias seguidos.
 
 ## Metas diárias e semanais

@@ -12,6 +12,7 @@ A ideia é que **uma IA (ChatGPT, Claude, Gemini etc.) atue como professora part
 | [`plano-12-meses.md`](plano-12-meses.md) | O **currículo mês a mês**: gramática "além do to be", vocabulário, conversa, músicas, escrita, escuta e meta de cada mês. |
 | [`metodos.md`](metodos.md) | O **passo a passo** de cada método (Conversa, Cantoria, Escrita, Escuta), com roteiros prontos e técnicas. |
 | [`rotina-e-avaliacao.md`](rotina-e-avaliacao.md) | **Rotina semanal**, metas diárias, checkpoints trimestrais, rubricas de avaliação e planilha de progresso. |
+| [`bot-whatsapp/`](bot-whatsapp/README.md) | **Bot de WhatsApp** que manda sozinho 2 a 3 quizzes por dia, em horários sorteados entre 8h e 17h (Brasília), gerados pelo Claude conforme o mês do curso. |
 
 ## Como começar (em 5 minutos)
 
@@ -19,7 +20,8 @@ A ideia é que **uma IA (ChatGPT, Claude, Gemini etc.) atue como professora part
 2. Copie o bloco do prompt em [`prompt-tutor-ia.md`](prompt-tutor-ia.md) e cole como primeira mensagem (ou em "instruções personalizadas" / "projeto").
 3. Escreva: `START — Mês 1, Semana 1. Faça meu teste de nivelamento.`
 4. Siga a [rotina semanal](rotina-e-avaliacao.md#rotina-semanal-padrão): **30–45 min por dia, 5–6 dias por semana**.
-5. No fim de cada sessão, peça `RESUMO` e guarde o registro de progresso que a IA gerar. Cole esse registro no começo da próxima sessão — é assim que a IA "lembra" de você.
+5. Ative o [bot de WhatsApp](bot-whatsapp/README.md) para receber **2–3 quizzes surpresa por dia** entre 8h e 17h.
+6. No fim de cada sessão, peça `RESUMO` e guarde o registro de progresso que a IA gerar. Cole esse registro no começo da próxima sessão — é assim que a IA "lembra" de você.
 
 ## Visão geral da jornada
 

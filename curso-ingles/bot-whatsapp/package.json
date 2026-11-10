@@ -1,0 +1,17 @@
+{
+  "name": "bot-whatsapp-quiz-ingles",
+  "version": "1.0.0",
+  "description": "Bot de WhatsApp que envia quizzes de inglês 2 a 3 vezes por dia, em horários sorteados entre 8h e 17h (horário de Brasília), seguindo o curso de 12 meses.",
+  "type": "module",
+  "private": true,
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node src/server.js",
+    "simular": "node scripts/simular.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.7.0",
+    "zod": "^4.6.7"
+  }
+}
